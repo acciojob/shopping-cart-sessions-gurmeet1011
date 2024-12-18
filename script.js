@@ -29,16 +29,13 @@ function renderProducts() {
 // Render cart list
 function renderCart() {
   cartList.innerHTML = ""; // Clear cart before re-rendering
-  if (cart.length === 0) {
-    cartList.innerHTML = "<li>Cart is empty</li>";
-  } else {
     cart.forEach((item) => {
       const li = document.createElement("li");
       li.innerHTML = `${item.name} - $${item.price} 
         <button class="remove-from-cart-btn" data-id="${item.id}">Remove</button>`;
       cartList.appendChild(li);
     });
-  }
+  
   saveCartToSession();
 }
 
